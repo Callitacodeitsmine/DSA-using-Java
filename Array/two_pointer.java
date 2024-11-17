@@ -3,31 +3,28 @@ public class two_pointer {
         int R = 0;
         int L = nums.length - 1;
 
-        while(R<L){
+        while (R < L) {
             int sum = nums[R] + nums[L];
 
-            if(sum == key){
-                System.out.println("("+R+" , "+L+")");
+            if (sum == key) {
+                System.out.println("(" + R + " , " + L + ")");
                 break;
-            }
-            else if(sum < key){
+            } else if (sum < key) {
                 R++;
-            }
-            else{
+            } else {
                 L--;
             }
         }
         System.out.println("null");
     }
 
-    public static void rd(int[] nums){
+    public static void rd(int[] nums) {
         int i = 0;
-        for(int j = 1; j<nums.length; j++){
-            if(nums[i] != nums[j]){
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[i] != nums[j]) {
                 i++;
                 nums[i] = nums[j];
-            }
-            else{
+            } else {
                 nums[j] = -1;
             }
         }
@@ -41,32 +38,29 @@ public class two_pointer {
     }
 
     public class Solution {
-        public static int[] twoSum(int[] nums, int target) {
-             int L = 0;
-             int R = nums.length - 1;
-     
-             while (L < R) {
-                 int sum = nums[L] + nums[R];
-     
-                 if (sum == target) {
-                     System.out.println("Pair found: " + nums[L] + ", " + nums[R]);
-                     return;
-                 }
-                 if (sum < target) {
-                     L++; // Move L pointer to the R
-                 } else {
-                     R--; // Move R pointer to the L
-                 }
-             }
-             System.out.println("No pair found");
-         }
-        public static void main(String[] args) {
-           int[] nums = {3,2,4};
-           System.out.println(twoSum(nums, 6));
+        public static void twoSum(int[] nums, int target) {
+            int L = 0;
+            int R = nums.length - 1;
+
+            while (L < R) {
+                int sum = nums[L] + nums[R];
+
+                if (sum == target) {
+                    System.out.println("Pair found: " + nums[L] + ", " + nums[R]);
+                    break;
+                }
+                if (sum < target) {
+                    L++; // Move L pointer to the R
+                } else {
+                    R--; // Move R pointer to the L
+                }
+            }
+            System.out.println("No pair found");
         }
-     }
+
+    }
     public static void main(String[] args) {
-        int[] nums = {1,1,6,7,1,5,9,8,7,6};
+        int[] nums = { 1, 1, 6, 7, 1, 5, 9, 8, 7, 6 };
         rd(nums);
     }
 }
